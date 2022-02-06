@@ -60,7 +60,7 @@ static lv_indev_state_t mouse_btn = LV_INDEV_STATE_REL;
 static lv_key_t last_key;
 static lv_indev_state_t last_key_state;
 
-static uint8_t fb[LV_HOR_RES_MAX * LV_VER_RES_MAX * 3];
+static uint8_t fb[LV_HOR_RES* LV_VER_RES* 3];
 
 /**********************
  *      MACROS
@@ -77,7 +77,7 @@ void gtkdrv_init(void)
 
     /* Or just set up the widgets in code */
     window = gtk_window_new(GTK_WINDOW_TOPLEVEL);
-    gtk_window_set_default_size(GTK_WINDOW(window), LV_HOR_RES_MAX, LV_VER_RES_MAX);
+    gtk_window_set_default_size(GTK_WINDOW(window), LV_HOR_RES, LV_VER_RES);
     gtk_window_set_resizable (GTK_WINDOW(window), FALSE);
     output_image = gtk_image_new();
     event_box = gtk_event_box_new (); // Use event_box around image, otherwise mouse position output in broadway is offset
@@ -99,7 +99,7 @@ void gtkdrv_init(void)
 
     gtk_widget_show_all(window);
 
-    pixbuf = gdk_pixbuf_new_from_data((guchar*)fb, GDK_COLORSPACE_RGB, false, 8, LV_HOR_RES_MAX, LV_VER_RES_MAX, LV_HOR_RES_MAX * 3, NULL, NULL);
+    pixbuf = gdk_pixbuf_new_from_data((guchar*)fb, GDK_COLORSPACE_RGB, false, 8, LV_HOR_RES, LV_VER_RES, LV_HOR_RES * 3, NULL, NULL);
     if (pixbuf == NULL)
     {
         fprintf(stderr, "Creating pixbuf failed\n");
