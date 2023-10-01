@@ -32,7 +32,7 @@
 #include <stdlib.h>
 #include <stdbool.h>
 #include <string.h>
-#include <lvgl/src/draw/sdl/lv_draw_sdl.h>
+#include <src/draw/sdl/lv_draw_sdl.h>
 #include SDL_INCLUDE_PATH
 
 /*********************
